@@ -9,27 +9,18 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" rel="stylesheet">
     <title>Home Page</title>
-    <style>
-        a {
-            text-decoration: none;
-        }
-    </style>
+   
 </head>
 <body>
     <div class="container">
-
-        <h1>Budgtr ALL</h1>
-
-    <table>
-        <% for(let i = 0; i < allBudget.length; i++) { %>
-        <tr>
-          <td><%=allBudget[i].date %></td>
-          <td><a href="/budget/<%=i%>"><%=allBudget[i].name %></a></td>
-          <td><%=allBudget[i].amount %></td>
-        </tr>
-        <% } %>
-      </table>
-      <button><a href="/budget/new">New Page</a></button>
+       <h1>Add your expense</h1>
+       <form action="/budget" method="POST">
+       <input type="text" placeholder="Enter date" name="date" /><br />
+       <input type="text" placeholder="Enter your name" name="name" /><br />
+        <input type="number" placeholder="Enter your amount" name="amount" /><br />
+        <input type="text" placeholder="place of your purchase" name="from" /><br />
+        <button type="submit">Add</button>
+    </form>
     </div>
 </body>
 </html>
