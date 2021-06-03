@@ -1,5 +1,5 @@
 
-const budget = [
+const budgets = [
     {
       date: "April 1",
       name: "Income",
@@ -72,4 +72,4 @@ const budget = [
     },
   ];
 
-  module.exports = budget
+  module.exports = budgets
