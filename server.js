@@ -4,6 +4,7 @@ const budget = require("./models/budget.js");
 const app = express();
 const port = 3000;
 
+
 // import data model
 const budgets = require('./models/budget.js')
 
@@ -13,6 +14,11 @@ app.use(express.urlencoded({
     extended: false
 }));
 // start making and calling routes
+
+app.get('/', (req, res) => {
+    res.send('Welcome to Budgtr App!')
+})
+
 // Index
 app.get('/budget', (req, res) => {
 
@@ -20,6 +26,7 @@ app.get('/budget', (req, res) => {
         allBudget: budgets
     })
 })
+
 // New
 app.get("/budget/new", (req, res) => {
     res.render('new.ejs');
@@ -37,6 +44,7 @@ app.get('/budget/:indexOfBudgetsArray', (req, res) => {
         budget: budgets[req.params.indexOfBudgetsArray]
     });
 })
+
 
 // listening to port
 app.listen(port, () => {
