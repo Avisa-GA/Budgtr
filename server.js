@@ -1,19 +1,27 @@
-// import express
+// =======================================
+//              DEPENDENCIES
+// =======================================
 const express = require("express");
 const budget = require("./models/budget.js");
 const app = express();
 const port = 3000;
 
 
-// import data model
+// =======================================
+//              DATABASE
+// =======================================
 const budgets = require('./models/budget.js')
 
-//   Middleware
+// =======================================
+//              MIDDLEWARE
+// =======================================
 // Adds form data to req.body so we can access it in the CREATE action:
 app.use(express.urlencoded({
     extended: false
 }));
-// start making and calling routes
+// =======================================
+//              ROUTES
+// =======================================
 
 app.get('/', (req, res) => {
     res.send('Welcome to Budgtr App!')
@@ -32,13 +40,13 @@ app.get("/budget/new", (req, res) => {
     res.render('new.ejs');
 });
 
-// create
+// CREATE
 app.post('/budget', (req, res) => {
     budgets.push(req.body)
     res.redirect('/budget')
 });
 
-// show 
+// SHOW ROUTE
 app.get('/budget/:indexOfBudgetsArray', (req, res) => {
     res.render('show.ejs', {
         budget: budgets[req.params.indexOfBudgetsArray]
@@ -46,7 +54,9 @@ app.get('/budget/:indexOfBudgetsArray', (req, res) => {
 })
 
 
-// listening to port
+// =======================================
+//              LISTENER
+// =======================================
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 })
