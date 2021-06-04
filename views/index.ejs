@@ -9,10 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" rel="stylesheet">
     <title>Home Page</title>
     <style>
-        body {
-            padding-top: 10%;
-        }
-
+       
         a {
             text-decoration: none;
         }
@@ -39,7 +36,6 @@
                 <td><a href="/budget/<%=i%>"><%=allBudget[i].name %></a></td>
                 <td><%=allBudget[i].amount %></td>
                 <% bankAccount = parseInt(allBudget[i].amount) + bankAccount%>
-                <%console.log(bankAccount)%>
             </tr>
             <% } %>
             <% if (bankAccount >= 1000) { %>
