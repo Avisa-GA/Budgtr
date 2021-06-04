@@ -46,7 +46,7 @@ app.post('/budget', (req, res) => {
     res.redirect('/budget')
 });
 
-// SHOW ROUTE
+// SHOW 
 app.get('/budget/:indexOfBudgetsArray', (req, res) => {
     res.render('show.ejs', {
         budget: budgets[req.params.indexOfBudgetsArray]

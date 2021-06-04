@@ -43,7 +43,9 @@
             </tr>
             <tr>
                 <th>tags</th>
-                <td><%= budget.tags[0]%></td>
+                <% for (let i = 0; i < budget.tags.length; i++) { %>
+                <td><%= budget.tags[i]%></td>
+               <%}%>
             </tr>
 
         </table>
