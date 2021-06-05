@@ -54,7 +54,7 @@ app.post('/budget', (req, res) => {
     const name = req.body.name
     const amount = req.body.amount
     const from = req.body.from
-    const tags = [req.body.tags]
+    const tags = req.body.tags
     // budgets.push(req.body)
 
     budgets.push( {
@@ -62,7 +62,7 @@ app.post('/budget', (req, res) => {
         'name': name,
         'amount': amount,
         'from': from,
-        'tags': tags
+        'tags': [tags]
     })
 
     res.redirect('/budget')
