@@ -2,8 +2,8 @@
 //              DEPENDENCIES
 // =======================================
 const express = require("express");
-const budget = require("./models/budget.js");
 const app = express();
+// let bodyParser = require('body-parser')
 const port = 3000;
 
 
@@ -12,13 +12,21 @@ const port = 3000;
 // =======================================
 const budgets = require('./models/budget.js')
 
+// let tags = []
+// budgets.forEach(function(element) => {
+
+// })
 // =======================================
 //              MIDDLEWARE
 // =======================================
 // Adds form data to req.body so we can access it in the CREATE action:
+
 app.use(express.urlencoded({
     extended: false
 }));
+
+// app.set('view engine', 'ejs')
+
 // =======================================
 //              ROUTES
 // =======================================
@@ -29,7 +37,6 @@ app.get('/', (req, res) => {
 
 // Index
 app.get('/budget', (req, res) => {
-
     res.render('index.ejs', {
         allBudget: budgets
     })
@@ -42,7 +49,22 @@ app.get("/budget/new", (req, res) => {
 
 // CREATE
 app.post('/budget', (req, res) => {
-    budgets.push(req.body)
+
+    const date = req.body.date
+    const name = req.body.name
+    const amount = req.body.amount
+    const from = req.body.from
+    const tags = [req.body.tags]
+    // budgets.push(req.body)
+
+    budgets.push( {
+        'date': date,
+        'name': name,
+        'amount': amount,
+        'from': from,
+        'tags': tags
+    })
+
     res.redirect('/budget')
 });
 
